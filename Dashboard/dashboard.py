@@ -1,13 +1,32 @@
-print("EV Telemetry Dashboard Starting...")
+import telemetry
+import time
+import data_logger
 
-temperature = 30.5
-voltage = 12.4
-throttle = 75
+#Creates data display 
+def display_dashboard(data):
 
-print("----------------------------")
-print("EV TELEMETRY")
-print("----------------------------")
-print(f"Throttle: {throttle}%")
-print(f"Temperature: {temperature} C")
-print(f"Battery Voltage: {voltage} V")
-print("----------------------------")
+    print("==============================")
+    print("    EV TELEMETRY DASHBOARD    ")
+    print("==============================")
+
+    print(f"Battery Voltage: {data['battery_voltage']} V")
+    print(f"Motor Temperature: {data['motor_temperature']} °C")
+    print(f"Throttle: {data['throttle']} %")
+    print(f"System Status: {data['system_status']} ")
+
+    print("==============================")
+
+while True:
+
+    #get data from telemetry module
+    data = telemetry.get_telemetry()
+    
+    #save data into file using data_logger module
+    data_logger.save_data(data)
+
+    #display data
+    display_dashboard(data)
+
+    #add delay for smooth function
+    time.sleep(1)
+
