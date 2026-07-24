@@ -1,5 +1,6 @@
 import random
 
+#pulls data from the sensors (creates it) and supplies it to other modules
 #hard coded values until STM32 arrives
 def get_telemetry():
     battery_voltage = round(random.uniform(11.8,12.8), 2)
