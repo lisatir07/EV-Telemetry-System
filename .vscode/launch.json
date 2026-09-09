@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug STM32",
+      "cwd": "${workspaceFolder}",
+      "executable": "/Users/lisatir_/Documents/EV-Telemetry-System/Firmware/EV_Telemetry_Firmware_MX/Debug/EV_Telemetry_Firmware_MX.elf",
+      "gdbPath": "/opt/homebrew/bin/arm-none-eabi-gdb",    
+      "serverpath": "/opt/homebrew/bin/openocd",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "openocd",
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32f1x.cfg"
+      ],
+      "device": "STM32F103C8",
+      "openOCDLaunchCommands": [
+        "adapter speed 400"
+      ]
+    }
+  ]
+}
